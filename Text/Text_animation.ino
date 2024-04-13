@@ -19,12 +19,11 @@ void loop() {
   lcd.print("now playing");
   lcd.setCursor(position, 1);
   lcd.print("少女レイ");
-  cd.setCursor(position, 3);
+  lcd.setCursor(position, 3);
   lcd.print("MORE MORE JUMP !");
  delay(250);
 
  if(position < 0 || position >= col) {
   position = 0;
  }
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 }
