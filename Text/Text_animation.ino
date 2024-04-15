@@ -1,27 +1,37 @@
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 int screenWidth = 20;
 int screenHeight = 4;
-uint8_t speaker[] = {0x01, 0x03, 0x07, 0x1f, 0x1f, 0x07, 0x03, 0x01};
+  byte customChar[] = {
+  B00001,
+  B00011,
+  B00101,
+  B01001,
+  B01011,
+  B11011,
+  B11000,
+  B00000
+};
 String line1 = "now playing ";
 String line2 = "Seven (feat. Latto) - Clean Ver.";
-String line3 = "Jung Kook";
 int stringStart, stringEnd = 0;
 int scrollCursor = screenWidth;
 LiquidCrystal_I2C lcd(0x27, screenWidth, screenHeight);
 void setup() {
   lcd.begin(screenWidth, screenHeight);
-  lcd.createChar(0, speaker);
+  lcd.createChar(0, customChar);
+  lcd.init();
+  lcd.backlight();
 }
 void loop() {
   lcd.setCursor(0, 0);
   lcd.print(line1);
-  lcd.write(byte(0));
-  lcd.setCursor(0, 2);
-  lcd.print(line3);
+  lcd.setCursor(12, 0);
+  lcd.write(0);
   lcd.setCursor(scrollCursor, 1);
   lcd.print(line2.substring(stringStart,stringEnd));
-  delay(500);
+  delay(400);
   lcd.clear();
   if(stringStart == 0 && scrollCursor > 0){
     scrollCursor--;
