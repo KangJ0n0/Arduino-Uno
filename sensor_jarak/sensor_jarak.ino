@@ -9,7 +9,8 @@ int distance;
 
 void setup() 
 {
-lcd.begin();
+lcd.init();
+lcd.backlight();
 lcd.setCursor(0,0);
 lcd.print("   CNC STORE");
 lcd.setCursor(0,1);
