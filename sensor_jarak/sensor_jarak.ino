@@ -2,7 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 const int trigPin = 12;
 const int echoPin = 11;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 20, 4);
 // defines variables
 long duration;
 int distance;
