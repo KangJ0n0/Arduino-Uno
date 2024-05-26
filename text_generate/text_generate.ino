@@ -2,7 +2,7 @@
 #include <ESPAsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 #include <LiquidCrystal.h>  
-LiquidCrystal lcd(0x27,16,2);
+LiquidCrystal lcd(0x27,20,4);
  
 AsyncWebServer server(80);
  
